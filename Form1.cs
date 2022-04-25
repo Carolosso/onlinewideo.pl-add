@@ -1,0 +1,394 @@
+﻿using System;
+using System.Windows.Forms;
+
+namespace onlinewideo.pl_add
+{
+    public partial class Form1 : Form
+    {
+        
+        public Form1()
+        {
+            InitializeComponent();
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            wprowadz_tekst_do_opisu_film();
+        }
+        public void wprowadz_tekst_do_opisu_serial()
+        {
+            string tekst = String.Format(@"
+            <h3 style=""text-align: center; "">Serial {0}:</h3>
+
+               <a href = ""{1}"" target=""_blank"" rel=""noopener"" ><img class=""aligncenter wp-image-24 size-medium"" title =""Serial {2}"" src=""https://onlinewideo.pl/wp-content/uploads/2018/02/oglądaj-online-300x86.png"" alt=""Serial {3} online"" width=""300"" height=""86"" /></a>
+            ", textBoxNazwaSerial.Text.Trim(), labelWWWSerial.Text, textBoxNazwaSerial.Text.Trim(), textBoxNazwaSerial.Text.Trim());
+
+            textBoxOpisSerial.Text = textBoxNazwaSerial.Text + " - " + OpisSerialu.Text + tekst;
+        }
+        public void wprowadz_tekst_do_opisu_film()
+        {
+            string tekst = String.Format(@"
+            <h3 style=""text-align: center; "">Film {0}:</h3>
+
+               <a href = ""{1}"" target=""_blank"" rel=""noopener"" ><img class=""aligncenter wp-image-24 size-medium"" title =""Film {2}"" src=""https://onlinewideo.pl/wp-content/uploads/2018/02/oglądaj-online-300x86.png"" alt=""Film {3} online"" width=""300"" height=""86"" /></a>
+            ", textBoxNazwaFilm.Text.Trim(), labelWWWFilm.Text, textBoxNazwaFilm.Text.Trim(), textBoxNazwaFilm.Text.Trim());
+
+            textBoxOpis.Text = textBoxNazwaFilm.Text + " - " + OpisFilmu.Text + tekst;
+        }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Link do rejestracji
+            // Player+
+            // HBO GO
+            // Amazon Prime Video
+            // Canal + Premium
+            // Netflix
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0:
+                    labelWWWFilm.Text = @"https://onlinewideo.pl/online/rejestracja/";
+                    break;
+                case 1:
+                    labelWWWFilm.Text = @"https://onlinewideo.pl/online/player/";
+                    break;
+                case 2:
+                    labelWWWFilm.Text = @"https://onlinewideo.pl/online/hbo/";
+                    break;
+                case 3:
+                    labelWWWFilm.Text = @"https://onlinewideo.pl/online/amazon-prime-video/";
+                    break;
+                case 4:
+                    labelWWWFilm.Text = @"https://onlinewideo.pl/online/canal/";
+                    break;
+                case 5:
+                    labelWWWFilm.Text = @"https://onlinewideo.pl/online/netflix/";
+                    break;
+                default:
+                    MessageBox.Show("Błąd!");
+                    break;
+            }
+            wprowadz_tekst_do_opisu_film();
+            wprowadz_tekst_do_playera();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(textBoxOpis.Text);
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            wprowadz_tekst_do_playera();
+        }
+        public void wprowadz_tekst_do_playera()
+        {
+            string tekst = String.Format(@"
+            <div id=""player_div"" ></div> <script src=""https://onlinewideo.pl/wp-content/API_VIDEO/LOCKER/js2.js"" ></script><script> var ustawienia ={{element_id:""player_div"", wysokosc:""100%"", szerokosc:""100%"", skin:""5"", czas_blokady:""21"", dlugosc_filmu:""6350"", video_url:""https://onlinewideo.pl/wp-content/uploads/2020/03/Filmy-online.mp4"", video_img:""{0}"", stream:""0"", programy_url:[""{1}"",], player_button:[""https://onlinewideo.pl/wp-content/uploads/2020/02/rejestracja.png"",], }}; ONLINEWIDEO_generuj_player(ustawienia);</script>"
+            , textBoxAdresFilm.Text.Trim(), labelWWWFilm.Text.Trim());
+
+            textBoxPlayer.Text = tekst;
+        }
+
+        private void kopiujPlayerFilm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(textBoxPlayer.Text);
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+
+            }
+
+        }
+
+        private void kopiujOpisSerial_Click(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // link do rejestracji
+            // Player+
+            // HBO GO
+            // Amazon Prime Video
+            // Canal + Premium
+            // Netlix
+            switch (comboBox2.SelectedIndex)
+            {
+                case 0:
+                    labelWWWSerial.Text = @"https://onlinewideo.pl/online/rejestracja/";
+                    break;
+                case 1:
+                    labelWWWSerial.Text = @"https://onlinewideo.pl/online/player/";
+                    break;
+                case 2:
+                    labelWWWSerial.Text = @"https://onlinewideo.pl/online/hbo/";
+                    break;
+                case 3:
+                    labelWWWSerial.Text = @"https://onlinewideo.pl/online/amazon-prime-video/";
+                    break;
+                case 4:
+                    labelWWWSerial.Text = @"https://onlinewideo.pl/online/canal/";
+                    break;
+                case 5:
+                    labelWWWSerial.Text = @"https://onlinewideo.pl/online/netflix/";
+                    break;
+                default:
+                    MessageBox.Show("Błąd!");
+                    break;
+            }
+            wprowadz_tekst_do_opisu_serial();
+        }
+
+        private void textBoxNazwaSerial_TextChanged(object sender, EventArgs e)
+        {
+            wprowadz_tekst_do_opisu_serial();
+        }
+
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            string id = textBox1.Text.Trim();
+            string wynik = "";
+            if (id.Contains("youtu.be"))
+            {
+                wynik = "[" + id.Substring(id.LastIndexOf("e") + 2) + "]";
+
+            }
+            else
+            {
+                wynik = "[" + id.Substring(id.LastIndexOf("=") + 1) + "]";
+
+            }
+            textBoxIdFilm.Text = wynik;
+        }
+
+        private void kopiujId_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void kopiujIdSerial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(textBoxIdSerial.Text);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+            
+
+        }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+            string id = textBox2.Text.Trim();
+            string wynik = "";
+            if (id.Contains("youtu.be"))
+            {
+                 wynik = "[" + id.Substring(id.LastIndexOf("e") + 2) + "]";
+
+            }
+            else
+            {
+                 wynik = "[" + id.Substring(id.LastIndexOf("=") + 1) + "]";
+
+            }
+            textBoxIdSerial.Text = wynik;
+        }
+
+        private void labelWWWFilm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(labelWWWFilm.Text);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Controls.Clear();
+            this.InitializeComponent();
+        }
+
+        private void tabFilm_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                comboBox1.Enabled = false;
+            }
+            else comboBox1.Enabled = true;
+
+        }
+
+        private void textBoxOpis_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(textBoxOpis.Text);
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+        }
+
+        private void textBoxPlayer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(textBoxPlayer.Text);
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+
+            }
+        }
+
+        private void textBoxIdFilm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(textBoxIdFilm.Text);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(SEOfilm.Text);
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            textBoxOpis.Text = textBoxNazwaFilm.Text + " - " + OpisFilmu.Text;
+            if ((OpisFilmu.Text.Length + textBoxNazwaFilm.Text.Length)>138) SEOfilm.Text = " " + OpisFilmu.Text.Substring(0, 138-textBoxNazwaFilm.Text.Length);
+            else SEOfilm.Text = " "+ OpisFilmu.Text;
+            wprowadz_tekst_do_opisu_film();
+        }
+
+        private void labelWWWFilm_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(labelWWWFilm.Text);
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+        }
+
+        private void textBoxIdSerial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(textBoxIdSerial.Text);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+        }
+
+        private void textBoxOpisSerial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(textBoxOpisSerial.Text);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+
+        }
+
+        private void labelWWWSerial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(labelWWWSerial.Text);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+        }
+
+        private void OpisSerialu_TextChanged(object sender, EventArgs e)
+        {
+            textBoxOpisSerial.Text = textBoxNazwaSerial.Text + " - " + OpisSerialu.Text;
+            if ((OpisSerialu.Text.Length+textBoxNazwaSerial.Text.Length) > 138) SEOSerial.Text = " " + OpisSerialu.Text.Substring(0, 138 - textBoxNazwaSerial.Text.Length);
+            else SEOSerial.Text = " " + OpisSerialu.Text;
+            wprowadz_tekst_do_opisu_serial();
+        }
+
+        private void SEOSerial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(SEOSerial.Text);
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+        }
+    }
+}
