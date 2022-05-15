@@ -162,6 +162,7 @@ namespace onlinewideo.pl_add
             // SEOfilm
             // 
             this.SEOfilm.Font = new System.Drawing.Font("Oswald", 8F);
+            this.SEOfilm.ForeColor = System.Drawing.SystemColors.WindowText;
             this.SEOfilm.Location = new System.Drawing.Point(606, 304);
             this.SEOfilm.Name = "SEOfilm";
             this.SEOfilm.Size = new System.Drawing.Size(319, 112);
@@ -197,6 +198,7 @@ namespace onlinewideo.pl_add
             // textBoxPlayer
             // 
             this.textBoxPlayer.Font = new System.Drawing.Font("Oswald", 8F);
+            this.textBoxPlayer.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textBoxPlayer.Location = new System.Drawing.Point(607, 434);
             this.textBoxPlayer.Name = "textBoxPlayer";
             this.textBoxPlayer.Size = new System.Drawing.Size(319, 105);
@@ -209,6 +211,7 @@ namespace onlinewideo.pl_add
             // textBoxOpis
             // 
             this.textBoxOpis.Font = new System.Drawing.Font("Oswald", 8F);
+            this.textBoxOpis.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textBoxOpis.Location = new System.Drawing.Point(606, 189);
             this.textBoxOpis.Name = "textBoxOpis";
             this.textBoxOpis.Size = new System.Drawing.Size(319, 109);

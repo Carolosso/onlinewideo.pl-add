@@ -15,6 +15,7 @@ namespace onlinewideo.pl_add
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             wprowadz_tekst_do_opisu_film();
+            textBoxNazwaFilm.Text = textBoxNazwaFilm.Text.Trim();
         }
         public void wprowadz_tekst_do_opisu_serial()
         {
@@ -94,8 +95,18 @@ namespace onlinewideo.pl_add
         public void wprowadz_tekst_do_playera()
         {
             string tekst = String.Format(@"
-            <div id=""player_div"" ></div> <script src=""https://onlinewideo.pl/wp-content/API_VIDEO/LOCKER/js2.js"" ></script><script> var ustawienia ={{element_id:""player_div"", wysokosc:""100%"", szerokosc:""100%"", skin:""5"", czas_blokady:""21"", dlugosc_filmu:""6350"", video_url:""https://onlinewideo.pl/wp-content/uploads/2020/03/Filmy-online.mp4"", video_img:""{0}"", stream:""0"", programy_url:[""{1}"",], player_button:[""https://onlinewideo.pl/wp-content/uploads/2020/02/rejestracja.png"",], }}; ONLINEWIDEO_generuj_player(ustawienia);</script>"
-            , textBoxAdresFilm.Text.Trim(), labelWWWFilm.Text.Trim());
+            <iframe style=""
+                 width: 100%;
+                 height: 100%;
+                 position: absolute;
+                 top:0; left:0;
+                 background-image: url('{0}');
+                 background-repeat: no-repeat;
+                 background-size: contain;
+                 background-position: center; ""
+                 scrolling=""no"" frameborder=""0"" allowtransparency = ""true"" allowfullscreen="""" src=""https://player.onlinewideo.pl/player/player.php"" >
+             </iframe>"
+            , textBoxAdresFilm.Text.Trim());
 
             textBoxPlayer.Text = tekst;
         }
@@ -160,6 +171,7 @@ namespace onlinewideo.pl_add
         private void textBoxNazwaSerial_TextChanged(object sender, EventArgs e)
         {
             wprowadz_tekst_do_opisu_serial();
+            textBoxNazwaSerial.Text = textBoxNazwaSerial.Text.Trim();
         }
 
 
@@ -310,7 +322,7 @@ namespace onlinewideo.pl_add
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             textBoxOpis.Text = textBoxNazwaFilm.Text + " - " + OpisFilmu.Text;
-            if ((OpisFilmu.Text.Length + textBoxNazwaFilm.Text.Length)>138) SEOfilm.Text = " " + OpisFilmu.Text.Substring(0, 138-textBoxNazwaFilm.Text.Length);
+            if ((OpisFilmu.Text.Length + textBoxNazwaFilm.Text.Length)>138-11) SEOfilm.Text = " " + OpisFilmu.Text.Substring(0, 138-textBoxNazwaFilm.Text.Length-11);
             else SEOfilm.Text = " "+ OpisFilmu.Text;
             wprowadz_tekst_do_opisu_film();
         }
@@ -372,7 +384,7 @@ namespace onlinewideo.pl_add
         private void OpisSerialu_TextChanged(object sender, EventArgs e)
         {
             textBoxOpisSerial.Text = textBoxNazwaSerial.Text + " - " + OpisSerialu.Text;
-            if ((OpisSerialu.Text.Length+textBoxNazwaSerial.Text.Length) > 138) SEOSerial.Text = " " + OpisSerialu.Text.Substring(0, 138 - textBoxNazwaSerial.Text.Length);
+            if ((OpisSerialu.Text.Length+textBoxNazwaSerial.Text.Length) > 138-11) SEOSerial.Text = " " + OpisSerialu.Text.Substring(0, 138 - textBoxNazwaSerial.Text.Length-11);
             else SEOSerial.Text = " " + OpisSerialu.Text;
             wprowadz_tekst_do_opisu_serial();
         }
