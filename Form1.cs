@@ -174,12 +174,6 @@ namespace onlinewideo.pl_add
 
         private void textBoxNazwaSerial_TextChanged(object sender, EventArgs e)
         {
-            string path = @"skrypt.bat";
-            using (StreamWriter sw = File.CreateText(path))
-            {
-                sw.WriteLine(@"start chrome "" ? {0}""", textBoxNazwaSerial.Text + " trailer");
-            }
-            System.Diagnostics.Process.Start("skrypt.bat");
             wprowadz_tekst_do_opisu_serial();
             textBoxNazwaSerial.Text = textBoxNazwaSerial.Text.Trim();
         }
@@ -511,6 +505,32 @@ namespace onlinewideo.pl_add
 
                 MessageBox.Show("Błąd!");
 
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(textBoxNazwaFilm.Text);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+        }
+
+        private void labelNazwaSerial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(textBoxNazwaSerial.Text);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
             }
         }
     }
