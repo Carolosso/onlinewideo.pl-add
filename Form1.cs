@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace onlinewideo.pl_add
@@ -402,11 +403,6 @@ namespace onlinewideo.pl_add
             }
         }
 
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-
-        }
-
         private void button1_Click_2(object sender, EventArgs e)
         {
             try
@@ -416,7 +412,9 @@ namespace onlinewideo.pl_add
                 {
                     sw.WriteLine(@"start chrome "" ? {0}""", textBoxNazwaFilm.Text + " trailer");
                 }
-                System.Diagnostics.Process.Start("skrypt.bat");
+                System.Diagnostics.Process.Start("skrypt.bat"); 
+                Thread.Sleep(2000); //za szybko był usuwany plik
+                File.Delete(path);
             }
             catch (Exception)
             {
@@ -436,6 +434,8 @@ namespace onlinewideo.pl_add
                     sw.WriteLine(@"start chrome "" ? {0}""", textBoxNazwaSerial.Text + " trailer");
                 }
                 System.Diagnostics.Process.Start("skrypt.bat");
+                Thread.Sleep(2000); //za szybko był usuwany plik
+                File.Delete(path);
             }
             catch (Exception)
             {
@@ -444,9 +444,74 @@ namespace onlinewideo.pl_add
             }
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void label_opis_serialu_i_kod_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Clipboard.SetText(textBoxOpisSerial.Text);
+            }
+            catch (Exception)
+            {
 
+                MessageBox.Show("Błąd!");
+            }
+        }
+
+        private void label_seo_opis_serialu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(SEOSerial.Text);
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+        }
+
+        private void label_opis_filmu_i_kod_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(textBoxOpis.Text);
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+        }
+
+        private void label_seo_opis_filmu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(SEOfilm.Text);
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+        }
+
+        private void label_kod_player_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetText(textBoxPlayer.Text);
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+
+            }
         }
     }
 }

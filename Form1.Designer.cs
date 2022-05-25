@@ -32,18 +32,19 @@ namespace onlinewideo.pl_add
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabFilm = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.labelWWWFilm = new System.Windows.Forms.Button();
             this.OpisFilmu = new System.Windows.Forms.TextBox();
             this.SEOfilm = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
+            this.label_seo_opis_filmu = new System.Windows.Forms.Label();
             this.textBoxIdFilm = new System.Windows.Forms.Button();
             this.textBoxPlayer = new System.Windows.Forms.Button();
             this.textBoxOpis = new System.Windows.Forms.Button();
             this.labelTrailerFilm = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label_kod_player = new System.Windows.Forms.Label();
+            this.label_opis_filmu_i_kod = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxAdresFilm = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,10 +52,11 @@ namespace onlinewideo.pl_add
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxNazwaFilm = new System.Windows.Forms.TextBox();
             this.tabSerial = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
             this.SEOSerial = new System.Windows.Forms.Button();
             this.textBoxOpisSerial = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.label_opis_serialu_i_kod = new System.Windows.Forms.Label();
+            this.label_seo_opis_serialu = new System.Windows.Forms.Label();
             this.labelWWWSerial = new System.Windows.Forms.Button();
             this.textBoxIdSerial = new System.Windows.Forms.Button();
             this.OpisSerialu = new System.Windows.Forms.TextBox();
@@ -66,8 +68,11 @@ namespace onlinewideo.pl_add
             this.labelNazwaSerial = new System.Windows.Forms.Label();
             this.textBoxNazwaSerial = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabFilm.SuspendLayout();
             this.tabSerial.SuspendLayout();
@@ -89,25 +94,28 @@ namespace onlinewideo.pl_add
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(951, 596);
+            this.tabControl1.Size = new System.Drawing.Size(730, 596);
             this.tabControl1.TabIndex = 2;
             // 
             // tabFilm
             // 
             this.tabFilm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.tabFilm.Controls.Add(this.panel3);
+            this.tabFilm.Controls.Add(this.panel2);
+            this.tabFilm.Controls.Add(this.panel1);
             this.tabFilm.Controls.Add(this.button1);
             this.tabFilm.Controls.Add(this.label10);
             this.tabFilm.Controls.Add(this.labelWWWFilm);
             this.tabFilm.Controls.Add(this.OpisFilmu);
             this.tabFilm.Controls.Add(this.SEOfilm);
-            this.tabFilm.Controls.Add(this.label8);
+            this.tabFilm.Controls.Add(this.label_seo_opis_filmu);
             this.tabFilm.Controls.Add(this.textBoxIdFilm);
             this.tabFilm.Controls.Add(this.textBoxPlayer);
             this.tabFilm.Controls.Add(this.textBoxOpis);
             this.tabFilm.Controls.Add(this.labelTrailerFilm);
             this.tabFilm.Controls.Add(this.textBox1);
-            this.tabFilm.Controls.Add(this.label5);
-            this.tabFilm.Controls.Add(this.label4);
+            this.tabFilm.Controls.Add(this.label_kod_player);
+            this.tabFilm.Controls.Add(this.label_opis_filmu_i_kod);
             this.tabFilm.Controls.Add(this.label3);
             this.tabFilm.Controls.Add(this.textBoxAdresFilm);
             this.tabFilm.Controls.Add(this.label2);
@@ -119,10 +127,30 @@ namespace onlinewideo.pl_add
             this.tabFilm.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.tabFilm.Name = "tabFilm";
             this.tabFilm.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.tabFilm.Size = new System.Drawing.Size(943, 548);
+            this.tabFilm.Size = new System.Drawing.Size(722, 548);
             this.tabFilm.TabIndex = 0;
             this.tabFilm.Text = "Dodaj film";
             this.tabFilm.Click += new System.EventHandler(this.tabFilm_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.BackgroundImage = global::onlinewideo.pl_add.Properties.Resources._31sSQfFEQyL;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.button1.FlatAppearance.BorderSize = 3;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.ForeColor = System.Drawing.Color.DarkRed;
+            this.button1.Location = new System.Drawing.Point(332, 327);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 36);
+            this.button1.TabIndex = 30;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // label10
             // 
@@ -152,11 +180,11 @@ namespace onlinewideo.pl_add
             // OpisFilmu
             // 
             this.OpisFilmu.Font = new System.Drawing.Font("Oswald", 8F);
-            this.OpisFilmu.Location = new System.Drawing.Point(510, 57);
+            this.OpisFilmu.Location = new System.Drawing.Point(384, 57);
             this.OpisFilmu.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.OpisFilmu.Multiline = true;
             this.OpisFilmu.Name = "OpisFilmu";
-            this.OpisFilmu.Size = new System.Drawing.Size(416, 113);
+            this.OpisFilmu.Size = new System.Drawing.Size(334, 246);
             this.OpisFilmu.TabIndex = 27;
             this.OpisFilmu.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
@@ -165,25 +193,29 @@ namespace onlinewideo.pl_add
             this.SEOfilm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SEOfilm.Font = new System.Drawing.Font("Oswald", 8F);
             this.SEOfilm.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.SEOfilm.Location = new System.Drawing.Point(606, 304);
+            this.SEOfilm.Location = new System.Drawing.Point(681, 296);
             this.SEOfilm.Name = "SEOfilm";
-            this.SEOfilm.Size = new System.Drawing.Size(319, 112);
+            this.SEOfilm.Size = new System.Drawing.Size(30, 112);
             this.SEOfilm.TabIndex = 26;
             this.SEOfilm.Text = "-";
             this.SEOfilm.UseVisualStyleBackColor = true;
+            this.SEOfilm.Visible = false;
             this.SEOfilm.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // label8
+            // label_seo_opis_filmu
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Oswald", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(84)))), ((int)(((byte)(85)))));
-            this.label8.Location = new System.Drawing.Point(485, 348);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(115, 32);
-            this.label8.TabIndex = 25;
-            this.label8.Text = "SEO opis filmu:";
+            this.label_seo_opis_filmu.AutoSize = true;
+            this.label_seo_opis_filmu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_seo_opis_filmu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_seo_opis_filmu.Font = new System.Drawing.Font("Oswald", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_seo_opis_filmu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(84)))), ((int)(((byte)(85)))));
+            this.label_seo_opis_filmu.Location = new System.Drawing.Point(476, 402);
+            this.label_seo_opis_filmu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_seo_opis_filmu.Name = "label_seo_opis_filmu";
+            this.label_seo_opis_filmu.Size = new System.Drawing.Size(177, 51);
+            this.label_seo_opis_filmu.TabIndex = 25;
+            this.label_seo_opis_filmu.Text = "SEO opis filmu";
+            this.label_seo_opis_filmu.Click += new System.EventHandler(this.label_seo_opis_filmu_Click);
             // 
             // textBoxIdFilm
             // 
@@ -203,12 +235,13 @@ namespace onlinewideo.pl_add
             this.textBoxPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textBoxPlayer.Font = new System.Drawing.Font("Oswald", 8F);
             this.textBoxPlayer.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxPlayer.Location = new System.Drawing.Point(607, 434);
+            this.textBoxPlayer.Location = new System.Drawing.Point(681, 435);
             this.textBoxPlayer.Name = "textBoxPlayer";
-            this.textBoxPlayer.Size = new System.Drawing.Size(319, 105);
+            this.textBoxPlayer.Size = new System.Drawing.Size(30, 105);
             this.textBoxPlayer.TabIndex = 23;
             this.textBoxPlayer.Text = "-";
             this.textBoxPlayer.UseVisualStyleBackColor = true;
+            this.textBoxPlayer.Visible = false;
             this.textBoxPlayer.Click += new System.EventHandler(this.textBoxPlayer_Click);
             // 
             // textBoxOpis
@@ -216,9 +249,9 @@ namespace onlinewideo.pl_add
             this.textBoxOpis.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textBoxOpis.Font = new System.Drawing.Font("Oswald", 8F);
             this.textBoxOpis.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.textBoxOpis.Location = new System.Drawing.Point(606, 189);
+            this.textBoxOpis.Location = new System.Drawing.Point(681, 177);
             this.textBoxOpis.Name = "textBoxOpis";
-            this.textBoxOpis.Size = new System.Drawing.Size(319, 109);
+            this.textBoxOpis.Size = new System.Drawing.Size(33, 109);
             this.textBoxOpis.TabIndex = 22;
             this.textBoxOpis.Text = "-";
             this.textBoxOpis.UseVisualStyleBackColor = true;
@@ -247,30 +280,35 @@ namespace onlinewideo.pl_add
             this.textBox1.TabIndex = 16;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
-            // label5
+            // label_kod_player
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Oswald", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(84)))), ((int)(((byte)(85)))));
-            this.label5.Location = new System.Drawing.Point(504, 472);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 32);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Kod Player:";
+            this.label_kod_player.AutoSize = true;
+            this.label_kod_player.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_kod_player.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_kod_player.Font = new System.Drawing.Font("Oswald", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_kod_player.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(84)))), ((int)(((byte)(85)))));
+            this.label_kod_player.Location = new System.Drawing.Point(500, 473);
+            this.label_kod_player.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_kod_player.Name = "label_kod_player";
+            this.label_kod_player.Size = new System.Drawing.Size(135, 51);
+            this.label_kod_player.TabIndex = 10;
+            this.label_kod_player.Text = "Kod Player";
+            this.label_kod_player.Click += new System.EventHandler(this.label_kod_player_Click);
             // 
-            // label4
+            // label_opis_filmu_i_kod
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Oswald", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(84)))), ((int)(((byte)(85)))));
-            this.label4.Location = new System.Drawing.Point(479, 223);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 32);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Opis filmu i kod:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.label_opis_filmu_i_kod.AutoSize = true;
+            this.label_opis_filmu_i_kod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_opis_filmu_i_kod.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_opis_filmu_i_kod.Font = new System.Drawing.Font("Oswald", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_opis_filmu_i_kod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(84)))), ((int)(((byte)(85)))));
+            this.label_opis_filmu_i_kod.Location = new System.Drawing.Point(467, 327);
+            this.label_opis_filmu_i_kod.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_opis_filmu_i_kod.Name = "label_opis_filmu_i_kod";
+            this.label_opis_filmu_i_kod.Size = new System.Drawing.Size(190, 51);
+            this.label_opis_filmu_i_kod.TabIndex = 8;
+            this.label_opis_filmu_i_kod.Text = "Opis filmu i kod";
+            this.label_opis_filmu_i_kod.Click += new System.EventHandler(this.label_opis_filmu_i_kod_Click);
             // 
             // label3
             // 
@@ -344,18 +382,20 @@ namespace onlinewideo.pl_add
             this.textBoxNazwaFilm.Location = new System.Drawing.Point(22, 57);
             this.textBoxNazwaFilm.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBoxNazwaFilm.Name = "textBoxNazwaFilm";
-            this.textBoxNazwaFilm.Size = new System.Drawing.Size(424, 40);
+            this.textBoxNazwaFilm.Size = new System.Drawing.Size(346, 40);
             this.textBoxNazwaFilm.TabIndex = 2;
             this.textBoxNazwaFilm.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // tabSerial
             // 
             this.tabSerial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(233)))), ((int)(((byte)(201)))));
+            this.tabSerial.Controls.Add(this.panel5);
+            this.tabSerial.Controls.Add(this.panel4);
             this.tabSerial.Controls.Add(this.button3);
             this.tabSerial.Controls.Add(this.SEOSerial);
             this.tabSerial.Controls.Add(this.textBoxOpisSerial);
-            this.tabSerial.Controls.Add(this.label12);
-            this.tabSerial.Controls.Add(this.label11);
+            this.tabSerial.Controls.Add(this.label_opis_serialu_i_kod);
+            this.tabSerial.Controls.Add(this.label_seo_opis_serialu);
             this.tabSerial.Controls.Add(this.labelWWWSerial);
             this.tabSerial.Controls.Add(this.textBoxIdSerial);
             this.tabSerial.Controls.Add(this.OpisSerialu);
@@ -371,21 +411,42 @@ namespace onlinewideo.pl_add
             this.tabSerial.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.tabSerial.Name = "tabSerial";
             this.tabSerial.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.tabSerial.Size = new System.Drawing.Size(943, 548);
+            this.tabSerial.Size = new System.Drawing.Size(722, 548);
             this.tabSerial.TabIndex = 1;
             this.tabSerial.Text = "Dodaj serial";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.BackgroundImage = global::onlinewideo.pl_add.Properties.Resources._31sSQfFEQyL;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.button3.FlatAppearance.BorderSize = 3;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.ForeColor = System.Drawing.Color.DarkRed;
+            this.button3.Location = new System.Drawing.Point(325, 404);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(36, 36);
+            this.button3.TabIndex = 35;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // SEOSerial
             // 
             this.SEOSerial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SEOSerial.Font = new System.Drawing.Font("Oswald", 8F);
             this.SEOSerial.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.SEOSerial.Location = new System.Drawing.Point(577, 368);
+            this.SEOSerial.Location = new System.Drawing.Point(683, 368);
             this.SEOSerial.Name = "SEOSerial";
-            this.SEOSerial.Size = new System.Drawing.Size(328, 143);
+            this.SEOSerial.Size = new System.Drawing.Size(26, 143);
             this.SEOSerial.TabIndex = 34;
             this.SEOSerial.Text = "-";
             this.SEOSerial.UseVisualStyleBackColor = true;
+            this.SEOSerial.Visible = false;
             this.SEOSerial.Click += new System.EventHandler(this.SEOSerial_Click);
             // 
             // textBoxOpisSerial
@@ -393,37 +454,44 @@ namespace onlinewideo.pl_add
             this.textBoxOpisSerial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textBoxOpisSerial.Font = new System.Drawing.Font("Oswald", 8F);
             this.textBoxOpisSerial.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.textBoxOpisSerial.Location = new System.Drawing.Point(577, 193);
+            this.textBoxOpisSerial.Location = new System.Drawing.Point(683, 193);
             this.textBoxOpisSerial.Name = "textBoxOpisSerial";
-            this.textBoxOpisSerial.Size = new System.Drawing.Size(328, 147);
+            this.textBoxOpisSerial.Size = new System.Drawing.Size(28, 147);
             this.textBoxOpisSerial.TabIndex = 33;
             this.textBoxOpisSerial.Text = "-";
             this.textBoxOpisSerial.UseVisualStyleBackColor = true;
+            this.textBoxOpisSerial.Visible = false;
             this.textBoxOpisSerial.Click += new System.EventHandler(this.textBoxOpisSerial_Click);
             // 
-            // label12
+            // label_opis_serialu_i_kod
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Oswald", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(89)))));
-            this.label12.Location = new System.Drawing.Point(440, 226);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(133, 32);
-            this.label12.TabIndex = 32;
-            this.label12.Text = "Opis serialu i kod:";
+            this.label_opis_serialu_i_kod.AutoSize = true;
+            this.label_opis_serialu_i_kod.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_opis_serialu_i_kod.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_opis_serialu_i_kod.Font = new System.Drawing.Font("Oswald", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_opis_serialu_i_kod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(89)))));
+            this.label_opis_serialu_i_kod.Location = new System.Drawing.Point(459, 368);
+            this.label_opis_serialu_i_kod.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_opis_serialu_i_kod.Name = "label_opis_serialu_i_kod";
+            this.label_opis_serialu_i_kod.Size = new System.Drawing.Size(207, 51);
+            this.label_opis_serialu_i_kod.TabIndex = 32;
+            this.label_opis_serialu_i_kod.Text = "Opis serialu i kod";
+            this.label_opis_serialu_i_kod.Click += new System.EventHandler(this.label_opis_serialu_i_kod_Click);
             // 
-            // label11
+            // label_seo_opis_serialu
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Oswald", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(89)))));
-            this.label11.Location = new System.Drawing.Point(447, 421);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(126, 32);
-            this.label11.TabIndex = 31;
-            this.label11.Text = "SEO opis serialu:";
+            this.label_seo_opis_serialu.AutoSize = true;
+            this.label_seo_opis_serialu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label_seo_opis_serialu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label_seo_opis_serialu.Font = new System.Drawing.Font("Oswald", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_seo_opis_serialu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(89)))));
+            this.label_seo_opis_serialu.Location = new System.Drawing.Point(465, 462);
+            this.label_seo_opis_serialu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label_seo_opis_serialu.Name = "label_seo_opis_serialu";
+            this.label_seo_opis_serialu.Size = new System.Drawing.Size(194, 51);
+            this.label_seo_opis_serialu.TabIndex = 31;
+            this.label_seo_opis_serialu.Text = "SEO opis serialu";
+            this.label_seo_opis_serialu.Click += new System.EventHandler(this.label_seo_opis_serialu_Click);
             // 
             // labelWWWSerial
             // 
@@ -454,11 +522,11 @@ namespace onlinewideo.pl_add
             // OpisSerialu
             // 
             this.OpisSerialu.Font = new System.Drawing.Font("Oswald", 8F);
-            this.OpisSerialu.Location = new System.Drawing.Point(512, 66);
+            this.OpisSerialu.Location = new System.Drawing.Point(453, 96);
             this.OpisSerialu.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.OpisSerialu.Multiline = true;
             this.OpisSerialu.Name = "OpisSerialu";
-            this.OpisSerialu.Size = new System.Drawing.Size(381, 70);
+            this.OpisSerialu.Size = new System.Drawing.Size(265, 253);
             this.OpisSerialu.TabIndex = 28;
             this.OpisSerialu.TextChanged += new System.EventHandler(this.OpisSerialu_TextChanged);
             // 
@@ -572,52 +640,52 @@ namespace onlinewideo.pl_add
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // panel1
             // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.BackgroundImage = global::onlinewideo.pl_add.Properties.Resources._31sSQfFEQyL;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.button1.FlatAppearance.BorderSize = 3;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.ForeColor = System.Drawing.Color.DarkRed;
-            this.button1.Location = new System.Drawing.Point(332, 327);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 36);
-            this.button1.TabIndex = 30;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.Location = new System.Drawing.Point(459, 383);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 5);
+            this.panel1.TabIndex = 31;
             // 
-            // button3
+            // panel2
             // 
-            this.button3.BackColor = System.Drawing.Color.Black;
-            this.button3.BackgroundImage = global::onlinewideo.pl_add.Properties.Resources._31sSQfFEQyL;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.button3.FlatAppearance.BorderSize = 3;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.ForeColor = System.Drawing.Color.DarkRed;
-            this.button3.Location = new System.Drawing.Point(325, 404);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(36, 36);
-            this.button3.TabIndex = 35;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.panel2.BackColor = System.Drawing.Color.DarkGray;
+            this.panel2.Location = new System.Drawing.Point(459, 456);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 5);
+            this.panel2.TabIndex = 32;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.DarkGray;
+            this.panel3.Location = new System.Drawing.Point(459, 527);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 5);
+            this.panel3.TabIndex = 32;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.DarkGray;
+            this.panel4.Location = new System.Drawing.Point(462, 420);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(200, 5);
+            this.panel4.TabIndex = 36;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.DarkGray;
+            this.panel5.Location = new System.Drawing.Point(462, 514);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(200, 5);
+            this.panel5.TabIndex = 36;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ClientSize = new System.Drawing.Size(973, 661);
+            this.ClientSize = new System.Drawing.Size(744, 661);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Oswald", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -640,8 +708,8 @@ namespace onlinewideo.pl_add
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabFilm;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label_kod_player;
+        private System.Windows.Forms.Label label_opis_filmu_i_kod;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxAdresFilm;
         private System.Windows.Forms.Label label2;
@@ -664,18 +732,23 @@ namespace onlinewideo.pl_add
         private System.Windows.Forms.Button textBoxIdFilm;
         private System.Windows.Forms.TextBox OpisFilmu;
         private System.Windows.Forms.Button SEOfilm;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label_seo_opis_filmu;
         private System.Windows.Forms.Button labelWWWFilm;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox OpisSerialu;
         private System.Windows.Forms.Button textBoxIdSerial;
         private System.Windows.Forms.Button labelWWWSerial;
         private System.Windows.Forms.Button textBoxOpisSerial;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label_opis_serialu_i_kod;
+        private System.Windows.Forms.Label label_seo_opis_serialu;
         private System.Windows.Forms.Button SEOSerial;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
     }
 }
 
