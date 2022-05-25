@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
 
 namespace onlinewideo.pl_add
@@ -15,7 +17,7 @@ namespace onlinewideo.pl_add
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             wprowadz_tekst_do_opisu_film();
-            textBoxNazwaFilm.Text = textBoxNazwaFilm.Text.Trim();
+            textBoxNazwaFilm.Text = textBoxNazwaFilm.Text.Trim(); 
         }
         public void wprowadz_tekst_do_opisu_serial()
         {
@@ -91,6 +93,7 @@ namespace onlinewideo.pl_add
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             wprowadz_tekst_do_playera();
+
         }
         public void wprowadz_tekst_do_playera()
         {
@@ -170,6 +173,12 @@ namespace onlinewideo.pl_add
 
         private void textBoxNazwaSerial_TextChanged(object sender, EventArgs e)
         {
+            string path = @"skrypt.bat";
+            using (StreamWriter sw = File.CreateText(path))
+            {
+                sw.WriteLine(@"start chrome "" ? {0}""", textBoxNazwaSerial.Text + " trailer");
+            }
+            System.Diagnostics.Process.Start("skrypt.bat");
             wprowadz_tekst_do_opisu_serial();
             textBoxNazwaSerial.Text = textBoxNazwaSerial.Text.Trim();
         }
@@ -250,16 +259,6 @@ namespace onlinewideo.pl_add
 
         private void tabFilm_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox1.Checked)
-            {
-                comboBox1.Enabled = false;
-            }
-            else comboBox1.Enabled = true;
 
         }
 
@@ -401,6 +400,53 @@ namespace onlinewideo.pl_add
 
                 MessageBox.Show("Błąd!");
             }
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+                string path = @"skrypt.bat";
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(@"start chrome "" ? {0}""", textBoxNazwaFilm.Text + " trailer");
+                }
+                System.Diagnostics.Process.Start("skrypt.bat");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string path = @"skrypt.bat";
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(@"start chrome "" ? {0}""", textBoxNazwaSerial.Text + " trailer");
+                }
+                System.Diagnostics.Process.Start("skrypt.bat");
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
