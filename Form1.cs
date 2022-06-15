@@ -401,10 +401,14 @@ namespace onlinewideo.pl_add
         {
             try
             {
+                //---zamiana latin na plain text
+                byte[] tempBytes;
+                tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaFilm.Text);
+                //---
                 string path = @"skrypt.bat";
                 using (StreamWriter sw = File.CreateText(path))
                 {
-                    sw.WriteLine(@"start chrome "" ? {0}""", textBoxNazwaFilm.Text + " trailer");
+                    sw.WriteLine(@"start chrome "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes) + " trailer");
                 }
                 System.Diagnostics.Process.Start("skrypt.bat"); 
                 Thread.Sleep(2000); //za szybko był usuwany plik
@@ -422,10 +426,14 @@ namespace onlinewideo.pl_add
         {
             try
             {
+                //---zamiana latin na plain text
+                byte[] tempBytes;
+                tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaSerial.Text);
+                //---
                 string path = @"skrypt.bat";
                 using (StreamWriter sw = File.CreateText(path))
                 {
-                    sw.WriteLine(@"start chrome "" ? {0}""", textBoxNazwaSerial.Text + " trailer");
+                    sw.WriteLine(@"start chrome "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes) + " trailer");
                 }
                 System.Diagnostics.Process.Start("skrypt.bat");
                 Thread.Sleep(2000); //za szybko był usuwany plik
