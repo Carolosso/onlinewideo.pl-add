@@ -48,6 +48,7 @@ namespace onlinewideo.pl_add
             // Amazon Prime Video
             // Canal + Premium
             // Netflix
+            // Viaplay
             switch (comboBox1.SelectedIndex)
             {
                 case 0:
@@ -67,6 +68,9 @@ namespace onlinewideo.pl_add
                     break;
                 case 5:
                     labelWWWFilm.Text = @"https://onlinewideo.pl/online/netflix/";
+                    break;
+                case 6:
+                    labelWWWFilm.Text = @"https://onlinewideo.pl/online/viaplay/";
                     break;
                 default:
                     MessageBox.Show("Błąd!");
@@ -145,6 +149,7 @@ namespace onlinewideo.pl_add
             // Amazon Prime Video
             // Canal + Premium
             // Netlix
+            //viaplay
             switch (comboBox2.SelectedIndex)
             {
                 case 0:
@@ -164,6 +169,9 @@ namespace onlinewideo.pl_add
                     break;
                 case 5:
                     labelWWWSerial.Text = @"https://onlinewideo.pl/online/netflix/";
+                    break;
+                case 6:
+                    labelWWWSerial.Text = @"https://onlinewideo.pl/online/viaplay/";
                     break;
                 default:
                     MessageBox.Show("Błąd!");
@@ -316,7 +324,7 @@ namespace onlinewideo.pl_add
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             textBoxOpis.Text = textBoxNazwaFilm.Text + " - " + OpisFilmu.Text;
-            if ((OpisFilmu.Text.Length + textBoxNazwaFilm.Text.Length)>138-11) SEOfilm.Text = " " + OpisFilmu.Text.Substring(0, 138-textBoxNazwaFilm.Text.Length-11);
+            if ((OpisFilmu.Text.Length + textBoxNazwaFilm.Text.Length)>138-17) SEOfilm.Text = " " + OpisFilmu.Text.Substring(0, 138-textBoxNazwaFilm.Text.Length-11);
             else SEOfilm.Text = " "+ OpisFilmu.Text;
             wprowadz_tekst_do_opisu_film();
         }
@@ -378,7 +386,7 @@ namespace onlinewideo.pl_add
         private void OpisSerialu_TextChanged(object sender, EventArgs e)
         {
             textBoxOpisSerial.Text = textBoxNazwaSerial.Text + " - " + OpisSerialu.Text;
-            if ((OpisSerialu.Text.Length+textBoxNazwaSerial.Text.Length) > 138-11) SEOSerial.Text = " " + OpisSerialu.Text.Substring(0, 138 - textBoxNazwaSerial.Text.Length-11);
+            if ((OpisSerialu.Text.Length+textBoxNazwaSerial.Text.Length) > 138- 17) SEOSerial.Text = " " + OpisSerialu.Text.Substring(0, 138 - textBoxNazwaSerial.Text.Length-11);
             else SEOSerial.Text = " " + OpisSerialu.Text;
             wprowadz_tekst_do_opisu_serial();
         }

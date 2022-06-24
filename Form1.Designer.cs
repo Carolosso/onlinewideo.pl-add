@@ -382,7 +382,8 @@ namespace onlinewideo.pl_add
             "HBO GO",
             "Amazon Prime Video",
             "Canal + Premium",
-            "Netflix"});
+            "Netflix",
+            "Viaplay"});
             this.comboBox1.Location = new System.Drawing.Point(22, 168);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.comboBox1.Name = "comboBox1";
@@ -634,7 +635,8 @@ namespace onlinewideo.pl_add
             "HBO GO",
             "Amazon Prime Video",
             "Canal + Premium",
-            "Netflix"});
+            "Netflix",
+            "Viaplay"});
             this.comboBox2.Location = new System.Drawing.Point(26, 166);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.comboBox2.Name = "comboBox2";
