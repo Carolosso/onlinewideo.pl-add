@@ -12,7 +12,6 @@ namespace onlinewideo.pl_add
         public Form1()
         {
             InitializeComponent();
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -204,11 +203,6 @@ namespace onlinewideo.pl_add
             textBoxIdFilm.Text = wynik;
         }
 
-        private void kopiujId_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void kopiujIdSerial_Click(object sender, EventArgs e)
         {
             try
@@ -256,13 +250,18 @@ namespace onlinewideo.pl_add
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Controls.Clear();
-            this.InitializeComponent();
-        }
-
-        private void tabFilm_Click(object sender, EventArgs e)
-        {
-
+            textBoxNazwaFilm.Text = "";
+            textBox1.Text = "";
+            textBoxAdresFilm.Text = "";
+            OpisFilmu.Text = "";
+            textBoxNazwaSerial.Text = "";
+            textBox2.Text = "";
+            OpisSerialu.Text = "";
+            if (do_wrzucenia.Value > 1) do_wrzucenia.Value -= 1;
+            else {
+                MessageBox.Show("Na dzisiaj wystarczy! \uD83D\uDDF8", "Koniec!",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                do_wrzucenia.Value = 0;
+            }
         }
 
         private void textBoxOpis_Click(object sender, EventArgs e)

@@ -73,9 +73,12 @@ namespace onlinewideo.pl_add
             this.labelNazwaSerial = new System.Windows.Forms.Label();
             this.textBoxNazwaSerial = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.do_wrzucenia = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabFilm.SuspendLayout();
             this.tabSerial.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.do_wrzucenia)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -89,12 +92,12 @@ namespace onlinewideo.pl_add
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabControl1.Font = new System.Drawing.Font("Oswald", 20.25F);
             this.tabControl1.ItemSize = new System.Drawing.Size(132, 40);
-            this.tabControl1.Location = new System.Drawing.Point(11, 6);
+            this.tabControl1.Location = new System.Drawing.Point(3, 4);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(730, 596);
+            this.tabControl1.Size = new System.Drawing.Size(730, 606);
             this.tabControl1.TabIndex = 2;
             // 
             // tabFilm
@@ -127,10 +130,9 @@ namespace onlinewideo.pl_add
             this.tabFilm.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.tabFilm.Name = "tabFilm";
             this.tabFilm.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.tabFilm.Size = new System.Drawing.Size(722, 548);
+            this.tabFilm.Size = new System.Drawing.Size(722, 558);
             this.tabFilm.TabIndex = 0;
             this.tabFilm.Text = "Dodaj film";
-            this.tabFilm.Click += new System.EventHandler(this.tabFilm_Click);
             // 
             // panel3
             // 
@@ -195,7 +197,7 @@ namespace onlinewideo.pl_add
             this.labelWWWFilm.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.labelWWWFilm.Location = new System.Drawing.Point(22, 223);
             this.labelWWWFilm.Name = "labelWWWFilm";
-            this.labelWWWFilm.Size = new System.Drawing.Size(283, 54);
+            this.labelWWWFilm.Size = new System.Drawing.Size(346, 54);
             this.labelWWWFilm.TabIndex = 28;
             this.labelWWWFilm.Text = "brak";
             this.labelWWWFilm.UseVisualStyleBackColor = true;
@@ -374,6 +376,7 @@ namespace onlinewideo.pl_add
             // comboBox1
             // 
             this.comboBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Font = new System.Drawing.Font("Oswald", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
@@ -400,9 +403,9 @@ namespace onlinewideo.pl_add
             this.label1.Location = new System.Drawing.Point(16, 18);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 32);
+            this.label1.Size = new System.Drawing.Size(101, 32);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Nazwa:";
+            this.label1.Text = "Nazwa filmu:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBoxNazwaFilm
@@ -440,7 +443,7 @@ namespace onlinewideo.pl_add
             this.tabSerial.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.tabSerial.Name = "tabSerial";
             this.tabSerial.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.tabSerial.Size = new System.Drawing.Size(722, 548);
+            this.tabSerial.Size = new System.Drawing.Size(722, 558);
             this.tabSerial.TabIndex = 1;
             this.tabSerial.Text = "Dodaj serial";
             // 
@@ -545,7 +548,7 @@ namespace onlinewideo.pl_add
             this.labelWWWSerial.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.labelWWWSerial.Location = new System.Drawing.Point(26, 230);
             this.labelWWWSerial.Name = "labelWWWSerial";
-            this.labelWWWSerial.Size = new System.Drawing.Size(256, 48);
+            this.labelWWWSerial.Size = new System.Drawing.Size(378, 48);
             this.labelWWWSerial.TabIndex = 30;
             this.labelWWWSerial.Text = "brak";
             this.labelWWWSerial.UseVisualStyleBackColor = true;
@@ -567,7 +570,7 @@ namespace onlinewideo.pl_add
             // OpisSerialu
             // 
             this.OpisSerialu.Font = new System.Drawing.Font("Oswald", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OpisSerialu.Location = new System.Drawing.Point(457, 71);
+            this.OpisSerialu.Location = new System.Drawing.Point(448, 71);
             this.OpisSerialu.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.OpisSerialu.Multiline = true;
             this.OpisSerialu.Name = "OpisSerialu";
@@ -604,7 +607,7 @@ namespace onlinewideo.pl_add
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Oswald", 14.25F);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(89)))));
-            this.label9.Location = new System.Drawing.Point(510, 5);
+            this.label9.Location = new System.Drawing.Point(540, 30);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(97, 32);
@@ -626,6 +629,7 @@ namespace onlinewideo.pl_add
             // comboBox2
             // 
             this.comboBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Oswald", 16.25F);
             this.comboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(89)))));
             this.comboBox2.FormattingEnabled = true;
@@ -653,9 +657,9 @@ namespace onlinewideo.pl_add
             this.labelNazwaSerial.Location = new System.Drawing.Point(20, 30);
             this.labelNazwaSerial.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNazwaSerial.Name = "labelNazwaSerial";
-            this.labelNazwaSerial.Size = new System.Drawing.Size(63, 32);
+            this.labelNazwaSerial.Size = new System.Drawing.Size(112, 32);
             this.labelNazwaSerial.TabIndex = 14;
-            this.labelNazwaSerial.Text = "Nazwa:";
+            this.labelNazwaSerial.Text = "Nazwa serialu:";
             this.labelNazwaSerial.Click += new System.EventHandler(this.labelNazwaSerial_Click);
             // 
             // textBoxNazwaSerial
@@ -677,7 +681,7 @@ namespace onlinewideo.pl_add
             this.button2.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Oswald", 14.25F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(391, 610);
+            this.button2.Location = new System.Drawing.Point(49, 627);
             this.button2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(151, 39);
@@ -688,12 +692,35 @@ namespace onlinewideo.pl_add
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // do_wrzucenia
+            // 
+            this.do_wrzucenia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.do_wrzucenia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.do_wrzucenia.Font = new System.Drawing.Font("Oswald", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.do_wrzucenia.ForeColor = System.Drawing.SystemColors.Menu;
+            this.do_wrzucenia.Location = new System.Drawing.Point(635, 629);
+            this.do_wrzucenia.Name = "do_wrzucenia";
+            this.do_wrzucenia.Size = new System.Drawing.Size(52, 35);
+            this.do_wrzucenia.TabIndex = 29;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Oswald", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(432, 627);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(179, 36);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "Zostało do wrzucenia:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ClientSize = new System.Drawing.Size(744, 661);
+            this.ClientSize = new System.Drawing.Size(744, 680);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.do_wrzucenia);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Oswald", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -708,7 +735,9 @@ namespace onlinewideo.pl_add
             this.tabFilm.PerformLayout();
             this.tabSerial.ResumeLayout(false);
             this.tabSerial.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.do_wrzucenia)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -757,6 +786,8 @@ namespace onlinewideo.pl_add
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.NumericUpDown do_wrzucenia;
+        private System.Windows.Forms.Label label4;
     }
 }
 
