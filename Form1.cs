@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
@@ -8,7 +7,7 @@ namespace onlinewideo.pl_add
 {
     public partial class Form1 : Form
     {
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -17,7 +16,7 @@ namespace onlinewideo.pl_add
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             wprowadz_tekst_do_opisu_film();
-            textBoxNazwaFilm.Text = textBoxNazwaFilm.Text.Trim(); 
+            textBoxNazwaFilm.BackColor = System.Drawing.Color.FromArgb(128, 255, 128);
         }
         public void wprowadz_tekst_do_opisu_serial()
         {
@@ -27,7 +26,7 @@ namespace onlinewideo.pl_add
                <a href = ""{1}"" target=""_blank"" rel=""noopener"" ><img class=""aligncenter wp-image-24 size-medium"" title =""Serial {2}"" src=""https://onlinewideo.pl/wp-content/uploads/2018/02/oglądaj-online-300x86.png"" alt=""Serial {3} online"" width=""300"" height=""86"" /></a>
             ", textBoxNazwaSerial.Text.Trim(), labelWWWSerial.Text, textBoxNazwaSerial.Text.Trim(), textBoxNazwaSerial.Text.Trim());
 
-            textBoxOpisSerial.Text = textBoxNazwaSerial.Text + " - " + OpisSerialu.Text + tekst;
+            textBoxOpisSerial.Text = textBoxNazwaSerial.Text.Trim() + " - " + OpisSerialu.Text + tekst;
         }
         public void wprowadz_tekst_do_opisu_film()
         {
@@ -37,7 +36,7 @@ namespace onlinewideo.pl_add
                <a href = ""{1}"" target=""_blank"" rel=""noopener"" ><img class=""aligncenter wp-image-24 size-medium"" title =""Film {2}"" src=""https://onlinewideo.pl/wp-content/uploads/2018/02/oglądaj-online-300x86.png"" alt=""Film {3} online"" width=""300"" height=""86"" /></a>
             ", textBoxNazwaFilm.Text.Trim(), labelWWWFilm.Text, textBoxNazwaFilm.Text.Trim(), textBoxNazwaFilm.Text.Trim());
 
-            textBoxOpis.Text = textBoxNazwaFilm.Text + " - " + OpisFilmu.Text + tekst;
+            textBoxOpis.Text = textBoxNazwaFilm.Text.Trim() + " - " + OpisFilmu.Text + tekst;
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -97,6 +96,7 @@ namespace onlinewideo.pl_add
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             wprowadz_tekst_do_playera();
+            textBoxAdresFilm.BackColor = System.Drawing.Color.FromArgb(128, 255, 128);
 
         }
         public void wprowadz_tekst_do_playera()
@@ -136,7 +136,7 @@ namespace onlinewideo.pl_add
 
         private void kopiujOpisSerial_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -182,25 +182,30 @@ namespace onlinewideo.pl_add
         private void textBoxNazwaSerial_TextChanged(object sender, EventArgs e)
         {
             wprowadz_tekst_do_opisu_serial();
-            textBoxNazwaSerial.Text = textBoxNazwaSerial.Text.Trim();
+            textBoxNazwaSerial.BackColor = System.Drawing.Color.FromArgb(128, 255, 128);
+
         }
 
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
         {
-            string id = textBox1.Text.Trim();
-            string wynik = "";
-            if (id.Contains("youtu.be"))
+            try
             {
-                wynik = "[" + id.Substring(id.LastIndexOf("e") + 2) + "]";
-
+                string link = " ";
+                if (textBox1.Text.Contains("youtu.be"))
+                {
+                    link = textBox1.Text.Trim().Substring(textBox1.Text.LastIndexOf("e") + 2, 11);
+                }
+                else
+                {
+                    link = textBox1.Text.Trim().Substring(textBox1.Text.LastIndexOf("=") + 1, 11);
+                }
+                textBoxIdFilm.Text = Yt_id(link);
             }
-            else
+            catch (Exception)
             {
-                wynik = "[" + id.Substring(id.LastIndexOf("=") + 1) + "]";
-
+                MessageBox.Show("Zły link!");
             }
-            textBoxIdFilm.Text = wynik;
         }
 
         private void kopiujIdSerial_Click(object sender, EventArgs e)
@@ -214,25 +219,45 @@ namespace onlinewideo.pl_add
 
                 MessageBox.Show("Błąd!");
             }
-            
+
 
         }
-
-        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        private String Yt_id(String link)
         {
-            string id = textBox2.Text.Trim();
-            string wynik = "";
-            if (id.Contains("youtu.be"))
+            string wynik = " ";
+            if (link.Contains("youtu.be"))
             {
-                 wynik = "[" + id.Substring(id.LastIndexOf("e") + 2) + "]";
+                wynik = "[" + link.Substring(link.LastIndexOf("e") + 2) + "]";
 
             }
             else
             {
-                 wynik = "[" + id.Substring(id.LastIndexOf("=") + 1) + "]";
+                wynik = "[" + link.Substring(link.LastIndexOf("=") + 1) + "]";
 
             }
-            textBoxIdSerial.Text = wynik;
+            return wynik;
+        }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                string link = " ";
+                if (textBox2.Text.Contains("youtu.be"))
+                {
+                    link = textBox2.Text.Trim().Substring(textBox2.Text.LastIndexOf("e") + 2, 11);
+                }
+                else
+                {
+                    link = textBox2.Text.Trim().Substring(textBox2.Text.LastIndexOf("=") + 1, 11);
+                }
+                textBoxIdSerial.Text = Yt_id(link);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Zły link!");
+            }
+            
         }
 
         private void labelWWWFilm_Click(object sender, EventArgs e)
@@ -247,8 +272,7 @@ namespace onlinewideo.pl_add
                 MessageBox.Show("Błąd!");
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void reset()
         {
             textBoxNazwaFilm.Text = "";
             textBox1.Text = "";
@@ -257,9 +281,21 @@ namespace onlinewideo.pl_add
             textBoxNazwaSerial.Text = "";
             textBox2.Text = "";
             OpisSerialu.Text = "";
+
+            textBoxNazwaFilm.BackColor = System.Drawing.Color.White;
+            textBoxNazwaSerial.BackColor = System.Drawing.Color.White;
+            OpisFilmu.BackColor = System.Drawing.Color.White;
+            OpisSerialu.BackColor = System.Drawing.Color.White;
+            textBoxAdresFilm.BackColor = System.Drawing.Color.White;
+
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            reset();
             if (do_wrzucenia.Value > 1) do_wrzucenia.Value -= 1;
-            else {
-                MessageBox.Show("Na dzisiaj wystarczy! \uD83D\uDDF8", "Koniec!",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+            {
+                MessageBox.Show("Na dzisiaj koniec! \uD83D\uDDF8", "Koniec!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 do_wrzucenia.Value = 0;
             }
         }
@@ -322,10 +358,19 @@ namespace onlinewideo.pl_add
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
-            textBoxOpis.Text = textBoxNazwaFilm.Text + " - " + OpisFilmu.Text;
-            if ((OpisFilmu.Text.Length + textBoxNazwaFilm.Text.Length)>138-17) SEOfilm.Text = " " + OpisFilmu.Text.Substring(0, 138-textBoxNazwaFilm.Text.Length-11);
-            else SEOfilm.Text = " "+ OpisFilmu.Text;
-            wprowadz_tekst_do_opisu_film();
+            try
+            {
+                textBoxOpis.Text = textBoxNazwaFilm.Text.Trim() + " - " + OpisFilmu.Text;
+                if ((OpisFilmu.Text.Length + textBoxNazwaFilm.Text.Length) > 138 - 17) SEOfilm.Text = " " + OpisFilmu.Text.Substring(0, 138 - textBoxNazwaFilm.Text.Length - 11);
+                else SEOfilm.Text = " " + OpisFilmu.Text;
+                wprowadz_tekst_do_opisu_film();
+                OpisFilmu.BackColor = System.Drawing.Color.FromArgb(128, 255, 128);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Błąd!");
+                reset();
+            }
         }
 
         private void labelWWWFilm_Click_1(object sender, EventArgs e)
@@ -384,10 +429,20 @@ namespace onlinewideo.pl_add
 
         private void OpisSerialu_TextChanged(object sender, EventArgs e)
         {
-            textBoxOpisSerial.Text = textBoxNazwaSerial.Text + " - " + OpisSerialu.Text;
-            if ((OpisSerialu.Text.Length+textBoxNazwaSerial.Text.Length) > 138- 17) SEOSerial.Text = " " + OpisSerialu.Text.Substring(0, 138 - textBoxNazwaSerial.Text.Length-11);
-            else SEOSerial.Text = " " + OpisSerialu.Text;
-            wprowadz_tekst_do_opisu_serial();
+            try
+            {
+                textBoxOpisSerial.Text = textBoxNazwaSerial.Text.Trim() + " - " + OpisSerialu.Text;
+                if ((OpisSerialu.Text.Length + textBoxNazwaSerial.Text.Length) > 138 - 17) SEOSerial.Text = " " + OpisSerialu.Text.Substring(0, 138 - textBoxNazwaSerial.Text.Length - 11);
+                else SEOSerial.Text = " " + OpisSerialu.Text;
+                wprowadz_tekst_do_opisu_serial();
+                OpisSerialu.BackColor = System.Drawing.Color.FromArgb(128, 255, 128);
+            }
+            catch (Exception)
+            {
+                reset();
+                MessageBox.Show("Error!");
+            }
+            
         }
 
         private void SEOSerial_Click(object sender, EventArgs e)
@@ -408,34 +463,37 @@ namespace onlinewideo.pl_add
         {
             try
             {
+                if (textBoxNazwaFilm.Text == "") throw new Exception();
                 //---zamiana latin na plain text
                 byte[] tempBytes;
-                tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaFilm.Text);
+                tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaFilm.Text.Trim());
                 //---
                 string path = @"skrypt.bat";
                 using (StreamWriter sw = File.CreateText(path))
                 {
                     sw.WriteLine(@"start chrome "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes) + " trailer");
                 }
-                System.Diagnostics.Process.Start("skrypt.bat"); 
-                Thread.Sleep(2000); //za szybko był usuwany plik
+                System.Diagnostics.Process.Start("skrypt.bat");
+                Thread.Sleep(2500); //za szybko był usuwany plik
                 File.Delete(path);
+
             }
             catch (Exception)
             {
-
                 MessageBox.Show("Błąd!");
             }
-            
+
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             try
             {
+                if (textBoxNazwaSerial.Text == "") throw new Exception();
+
                 //---zamiana latin na plain text
                 byte[] tempBytes;
-                tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaSerial.Text);
+                tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaSerial.Text.Trim());
                 //---
                 string path = @"skrypt.bat";
                 using (StreamWriter sw = File.CreateText(path))
@@ -547,6 +605,11 @@ namespace onlinewideo.pl_add
 
                 MessageBox.Show("Błąd!");
             }
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
