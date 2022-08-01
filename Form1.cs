@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
@@ -11,6 +12,7 @@ namespace onlinewideo.pl_add
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -191,20 +193,16 @@ namespace onlinewideo.pl_add
         {
             try
             {
-                string link = " ";
-                if (textBox1.Text.Contains("youtu.be"))
+                if (textBox1.Text.Contains("youtube.com") || textBox1.Text.Contains("youtu.be")|| textBox1.Text.Equals(" "))
                 {
-                    link = textBox1.Text.Trim().Substring(textBox1.Text.LastIndexOf("e") + 2, 11);
+                    textBoxIdFilm.Text = Yt_id(textBox1.Text);
                 }
-                else
-                {
-                    link = textBox1.Text.Trim().Substring(textBox1.Text.LastIndexOf("=") + 1, 11);
-                }
-                textBoxIdFilm.Text = Yt_id(link);
+                else throw new Exception();
             }
             catch (Exception)
             {
                 MessageBox.Show("Zły link!");
+                textBox1.Text = " ";
             }
         }
 
@@ -242,22 +240,18 @@ namespace onlinewideo.pl_add
         {
             try
             {
-                string link = " ";
-                if (textBox2.Text.Contains("youtu.be"))
+                if (textBox2.Text.Contains("youtube.com") || textBox2.Text.Contains("youtu.be") || textBox2.Text.Equals(" "))
                 {
-                    link = textBox2.Text.Trim().Substring(textBox2.Text.LastIndexOf("e") + 2, 11);
+                    textBoxIdSerial.Text = Yt_id(textBox2.Text);
                 }
-                else
-                {
-                    link = textBox2.Text.Trim().Substring(textBox2.Text.LastIndexOf("=") + 1, 11);
-                }
-                textBoxIdSerial.Text = Yt_id(link);
+                else throw new Exception();
             }
             catch (Exception)
             {
                 MessageBox.Show("Zły link!");
+                textBox2.Text = "";
             }
-            
+
         }
 
         private void labelWWWFilm_Click(object sender, EventArgs e)
@@ -275,11 +269,10 @@ namespace onlinewideo.pl_add
         private void reset()
         {
             textBoxNazwaFilm.Text = "";
-            textBox1.Text = "";
             textBoxAdresFilm.Text = "";
             OpisFilmu.Text = "";
             textBoxNazwaSerial.Text = "";
-            textBox2.Text = "";
+            textBox1.Text = textBox2.Text = " ";
             OpisSerialu.Text = "";
 
             textBoxNazwaFilm.BackColor = System.Drawing.Color.White;
@@ -298,6 +291,7 @@ namespace onlinewideo.pl_add
                 MessageBox.Show("Na dzisiaj koniec! \uD83D\uDDF8", "Koniec!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 do_wrzucenia.Value = 0;
             }
+            notifyIcon1.Text = "Zostało do wrzucenia: "+do_wrzucenia.Value.ToString();
         }
 
         private void textBoxOpis_Click(object sender, EventArgs e)
@@ -471,7 +465,7 @@ namespace onlinewideo.pl_add
                 string path = @"skrypt.bat";
                 using (StreamWriter sw = File.CreateText(path))
                 {
-                    sw.WriteLine(@"start chrome "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes) + " trailer");
+                    sw.WriteLine(@"start chrome --incognito "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes) + " trailer");
                 }
                 System.Diagnostics.Process.Start("skrypt.bat");
                 Thread.Sleep(2500); //za szybko był usuwany plik
@@ -498,10 +492,10 @@ namespace onlinewideo.pl_add
                 string path = @"skrypt.bat";
                 using (StreamWriter sw = File.CreateText(path))
                 {
-                    sw.WriteLine(@"start chrome "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes) + " trailer");
+                    sw.WriteLine(@"start chrome --incognito "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes) + " trailer");
                 }
                 System.Diagnostics.Process.Start("skrypt.bat");
-                Thread.Sleep(2000); //za szybko był usuwany plik
+                Thread.Sleep(2500); //za szybko był usuwany plik
                 File.Delete(path);
             }
             catch (Exception)
@@ -611,5 +605,54 @@ namespace onlinewideo.pl_add
         {
 
         }
+
+     
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            //zdarzenie Resize do minimalizeToTray
+            this.Resize += new System.EventHandler(this.Form1_Resize);
+            
+            do_wrzucenia.Value = 8;
+            notifyIcon1.Text = "Zostało do wrzucenia:  "+do_wrzucenia.Value.ToString();
+
+            //uruchamianie programu w prawym dolnym rogu monitora
+            Rectangle workingArea = Screen.GetWorkingArea(this);
+            this.Location = new Point(workingArea.Right - Size.Width,
+                                      workingArea.Bottom - Size.Height);
+        }
+
+
+
+        private void do_wrzucenia_ValueChanged(object sender, EventArgs e)
+        {
+            notifyIcon1.Text = "Zostało do wrzucenia:  " + do_wrzucenia.Value.ToString();
+
+        }
+
+        //minimalize to tray
+        //
+        //
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+
+            if (FormWindowState.Minimized == WindowState)
+            {
+
+                notifyIcon1.Visible = true;
+                this.Hide();
+            }
+        }
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        //
+
     }
 }

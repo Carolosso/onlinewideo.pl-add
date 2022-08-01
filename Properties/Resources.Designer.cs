@@ -79,5 +79,15 @@ namespace onlinewideo.pl_add.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap YouTube_full_color_icon__2017__svg {
+            get {
+                object obj = ResourceManager.GetObject("YouTube_full-color_icon_(2017).svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

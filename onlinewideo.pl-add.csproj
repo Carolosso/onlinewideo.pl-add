@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon-filmy.ico" />
+    <None Include="Resources\YouTube_full-color_icon_%282017%29.svg.png" />
     <None Include="Resources\31sSQfFEQyL.jpg" />
     <None Include="Resources\Search_Icon.svg.png" />
   </ItemGroup>
