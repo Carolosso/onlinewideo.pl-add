@@ -150,7 +150,7 @@ namespace onlinewideo.pl_add
             // Amazon Prime Video
             // Canal + Premium
             // Netlix
-            //viaplay
+            // Viaplay
             switch (comboBox2.SelectedIndex)
             {
                 case 0:
@@ -268,10 +268,10 @@ namespace onlinewideo.pl_add
         }
         private void reset()
         {
-            textBoxNazwaFilm.Text = "";
+            textBoxNazwaFilm.Text = ""; textBoxNazwaFilm2.Text = "";
             textBoxAdresFilm.Text = "";
             OpisFilmu.Text = "";
-            textBoxNazwaSerial.Text = "";
+            textBoxNazwaSerial.Text = ""; textBoxNazwaSerial2.Text = "";
             textBox1.Text = textBox2.Text = " ";
             OpisSerialu.Text = "";
 
@@ -462,14 +462,20 @@ namespace onlinewideo.pl_add
                 byte[] tempBytes;
                 tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaFilm.Text.Trim());
                 //---
-                string path = @"skrypt.bat";
+                byte[] tempBytes2;
+                tempBytes2 = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaFilm2.Text.Trim());
+                string path = @"skrypt.bat"; string path2 = @"skrypt2.bat";
                 using (StreamWriter sw = File.CreateText(path))
                 {
                     sw.WriteLine(@"start chrome --incognito "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes) + " trailer");
                 }
-                System.Diagnostics.Process.Start("skrypt.bat");
+                using (StreamWriter sw2 = File.CreateText(path2))
+                {
+                    sw2.WriteLine(@"start chrome --incognito "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes2) + " trailer");
+                }
+                System.Diagnostics.Process.Start("skrypt.bat"); System.Diagnostics.Process.Start("skrypt2.bat");
                 Thread.Sleep(2500); //za szybko był usuwany plik
-                File.Delete(path);
+                File.Delete(path); File.Delete(path2);
 
             }
             catch (Exception)
@@ -489,14 +495,22 @@ namespace onlinewideo.pl_add
                 byte[] tempBytes;
                 tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaSerial.Text.Trim());
                 //---
-                string path = @"skrypt.bat";
+                //---zamiana latin na plain text
+                byte[] tempBytes2;
+                tempBytes2 = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaSerial2.Text.Trim());
+                //---
+                string path = @"skrypt.bat"; string path2 = @"skrypt2.bat";
                 using (StreamWriter sw = File.CreateText(path))
                 {
                     sw.WriteLine(@"start chrome --incognito "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes) + " trailer");
                 }
-                System.Diagnostics.Process.Start("skrypt.bat");
+                using (StreamWriter sw2 = File.CreateText(path2))
+                {
+                    sw2.WriteLine(@"start chrome --incognito "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes2) + " trailer");
+                }
+                System.Diagnostics.Process.Start("skrypt.bat"); System.Diagnostics.Process.Start("skrypt2.bat");
                 Thread.Sleep(2500); //za szybko był usuwany plik
-                File.Delete(path);
+                File.Delete(path); File.Delete(path2);
             }
             catch (Exception)
             {
@@ -651,6 +665,73 @@ namespace onlinewideo.pl_add
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                textBoxNazwaFilm.Text=textBoxNazwaFilm.Text.Trim();
+                String temp = textBoxNazwaFilm.Text.Substring(0, 1);
+                textBoxNazwaFilm.Text = temp + textBoxNazwaFilm.Text.Substring(1, textBoxNazwaFilm.Text.Length - 1).ToLower();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+           
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                textBoxNazwaFilm2.Text=textBoxNazwaFilm2.Text.Trim();
+                String temp = textBoxNazwaFilm2.Text.Substring(0, 1);
+                textBoxNazwaFilm2.Text = temp + textBoxNazwaFilm2.Text.Substring(1, textBoxNazwaFilm2.Text.Length - 1).ToLower();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                textBoxNazwaSerial.Text=textBoxNazwaSerial.Text.Trim();
+                String temp = textBoxNazwaSerial.Text.Substring(0, 1);
+                textBoxNazwaSerial.Text = temp + textBoxNazwaSerial.Text.Substring(1, textBoxNazwaSerial.Text.Length - 1).ToLower();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
+
+        }
+
+        private void textBoxNazwaSerial2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                textBoxNazwaSerial2.Text=textBoxNazwaSerial2.Text.Trim();
+                String temp = textBoxNazwaSerial2.Text.Substring(0, 1);
+                textBoxNazwaSerial2.Text = temp + textBoxNazwaSerial2.Text.Substring(1, textBoxNazwaSerial2.Text.Length - 1).ToLower();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Błąd!");
+            }
         }
         //
 
