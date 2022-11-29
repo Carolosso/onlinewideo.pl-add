@@ -426,7 +426,7 @@ namespace onlinewideo.pl_add
             try
             {
                 textBoxOpisSerial.Text = textBoxNazwaSerial.Text.Trim() + " - " + OpisSerialu.Text;
-                if ((OpisSerialu.Text.Length + textBoxNazwaSerial.Text.Length) > 138 - 17) SEOSerial.Text = " " + OpisSerialu.Text.Substring(0, 138 - textBoxNazwaSerial.Text.Length - 11);
+                if ((OpisSerialu.Text.Length + textBoxNazwaSerial.Text.Length) > 138 - 17) SEOSerial.Text = " " + OpisSerialu.Text.Substring(0, 138 -   textBoxNazwaSerial.Text.Length - 11);
                 else SEOSerial.Text = " " + OpisSerialu.Text;
                 wprowadz_tekst_do_opisu_serial();
                 OpisSerialu.BackColor = System.Drawing.Color.FromArgb(128, 255, 128);
@@ -457,25 +457,39 @@ namespace onlinewideo.pl_add
         {
             try
             {
-                if (textBoxNazwaFilm.Text == "") throw new Exception();
-                //---zamiana latin na plain text
-                byte[] tempBytes;
-                tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaFilm.Text.Trim());
-                //---
-                byte[] tempBytes2;
-                tempBytes2 = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaFilm2.Text.Trim());
-                string path = @"skrypt.bat"; string path2 = @"skrypt2.bat";
-                using (StreamWriter sw = File.CreateText(path))
+                if (textBoxNazwaFilm.Text == "" && textBoxNazwaFilm2.Text == "") throw new Exception();
+                if (!textBoxNazwaFilm.Text.Trim().Equals(""))
                 {
-                    sw.WriteLine(@"start chrome --incognito "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes) + " trailer");
+                    //---zamiana latin na plain text
+                    byte[] tempBytes;
+                    tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaFilm.Text.Trim());
+                    //---
+                    string path = @"skrypt.bat";
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+                        sw.WriteLine(@"start chrome --incognito "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes) + " trailer");
+                    }
+                    System.Diagnostics.Process.Start("skrypt.bat"); 
+                    Thread.Sleep(1500); //za szybko był usuwany plik
+                    File.Delete(path);
                 }
-                using (StreamWriter sw2 = File.CreateText(path2))
+                if (!textBoxNazwaFilm2.Text.Trim().Equals(""))
                 {
-                    sw2.WriteLine(@"start chrome --incognito "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes2) + " trailer");
+
+                    byte[] tempBytes2;
+                    tempBytes2 = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaFilm2.Text.Trim());
+                    string path2 = @"skrypt2.bat";
+
+                    using (StreamWriter sw2 = File.CreateText(path2))
+                    {
+                        sw2.WriteLine(@"start chrome --incognito "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes2) + " trailer");
+                    }
+
+                    System.Diagnostics.Process.Start("skrypt2.bat");
+                    Thread.Sleep(1500); //za szybko był usuwany plik
+                    File.Delete(path2);
+
                 }
-                System.Diagnostics.Process.Start("skrypt.bat"); System.Diagnostics.Process.Start("skrypt2.bat");
-                Thread.Sleep(2500); //za szybko był usuwany plik
-                File.Delete(path); File.Delete(path2);
 
             }
             catch (Exception)
@@ -489,28 +503,39 @@ namespace onlinewideo.pl_add
         {
             try
             {
-                if (textBoxNazwaSerial.Text == "") throw new Exception();
+                if (textBoxNazwaSerial.Text.Trim() == "" && textBoxNazwaSerial2.Text.Trim() == "") throw new Exception();
+                if (!textBoxNazwaSerial.Text.Trim().Equals(""))
+                {
+                    //---zamiana latin na plain text
+                    byte[] tempBytes;
+                    tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaSerial.Text.Trim());
+                    string path = @"skrypt.bat";
+                    using (StreamWriter sw = File.CreateText(path))
+                    {
+                        sw.WriteLine(@"start chrome --incognito "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes) + " trailer");
+                    }
+                    System.Diagnostics.Process.Start("skrypt.bat");
+                    Thread.Sleep(1500); //za szybko był usuwany plik
+                    File.Delete(path);
+                }
+                if (!textBoxNazwaSerial2.Text.Trim().Equals(""))
+                {
+                    //---
+                    //---zamiana latin na plain text
+                    byte[] tempBytes2;
+                    tempBytes2 = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaSerial2.Text.Trim());
+                    //---
+                    string path2 = @"skrypt2.bat";
 
-                //---zamiana latin na plain text
-                byte[] tempBytes;
-                tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaSerial.Text.Trim());
-                //---
-                //---zamiana latin na plain text
-                byte[] tempBytes2;
-                tempBytes2 = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(textBoxNazwaSerial2.Text.Trim());
-                //---
-                string path = @"skrypt.bat"; string path2 = @"skrypt2.bat";
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    sw.WriteLine(@"start chrome --incognito "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes) + " trailer");
+                    using (StreamWriter sw2 = File.CreateText(path2))
+                    {
+                        sw2.WriteLine(@"start chrome --incognito "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes2) + " trailer");
+                    }
+                    System.Diagnostics.Process.Start("skrypt2.bat");
+                    Thread.Sleep(1500); //za szybko był usuwany plik
+                    File.Delete(path2);
                 }
-                using (StreamWriter sw2 = File.CreateText(path2))
-                {
-                    sw2.WriteLine(@"start chrome --incognito "" ? {0}""", System.Text.Encoding.UTF8.GetString(tempBytes2) + " trailer");
-                }
-                System.Diagnostics.Process.Start("skrypt.bat"); System.Diagnostics.Process.Start("skrypt2.bat");
-                Thread.Sleep(2500); //za szybko był usuwany plik
-                File.Delete(path); File.Delete(path2);
+                
             }
             catch (Exception)
             {
@@ -633,6 +658,9 @@ namespace onlinewideo.pl_add
             Rectangle workingArea = Screen.GetWorkingArea(this);
             this.Location = new Point(workingArea.Right - Size.Width,
                                       workingArea.Bottom - Size.Height);
+
+            this.Opacity = 0.75;
+ 
         }
 
 
@@ -651,7 +679,7 @@ namespace onlinewideo.pl_add
 
             if (FormWindowState.Minimized == WindowState)
             {
-
+                this.Opacity = 50;
                 notifyIcon1.Visible = true;
                 this.Hide();
             }
@@ -733,7 +761,11 @@ namespace onlinewideo.pl_add
                 MessageBox.Show("Błąd!");
             }
         }
-        //
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            reset();
+        }
+        //
     }
 }
