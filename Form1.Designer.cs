@@ -37,7 +37,6 @@ namespace onlinewideo.pl_add
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxNazwaFilm2 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.labelWWWFilm = new System.Windows.Forms.Button();
             this.OpisFilmu = new System.Windows.Forms.TextBox();
@@ -46,7 +45,6 @@ namespace onlinewideo.pl_add
             this.textBoxIdFilm = new System.Windows.Forms.Button();
             this.textBoxPlayer = new System.Windows.Forms.Button();
             this.textBoxOpis = new System.Windows.Forms.Button();
-            this.labelTrailerFilm = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label_kod_player = new System.Windows.Forms.Label();
             this.label_opis_filmu_i_kod = new System.Windows.Forms.Label();
@@ -56,6 +54,7 @@ namespace onlinewideo.pl_add
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxNazwaFilm = new System.Windows.Forms.TextBox();
             this.tabSerial = new System.Windows.Forms.TabPage();
+            this.checkBox2Polski = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.textBoxNazwaSerial2 = new System.Windows.Forms.TextBox();
@@ -72,8 +71,6 @@ namespace onlinewideo.pl_add
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.labelNazwaSerial = new System.Windows.Forms.Label();
             this.textBoxNazwaSerial = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.do_wrzucenia = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -81,6 +78,11 @@ namespace onlinewideo.pl_add
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.button4 = new System.Windows.Forms.Button();
+            this.checkBoxPolski = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.labelTrailerFilm = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabFilm.SuspendLayout();
             this.tabSerial.SuspendLayout();
@@ -109,6 +111,7 @@ namespace onlinewideo.pl_add
             // tabFilm
             // 
             this.tabFilm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.tabFilm.Controls.Add(this.checkBoxPolski);
             this.tabFilm.Controls.Add(this.label8);
             this.tabFilm.Controls.Add(this.label5);
             this.tabFilm.Controls.Add(this.textBoxNazwaFilm2);
@@ -191,26 +194,6 @@ namespace onlinewideo.pl_add
             this.comboBox1.Size = new System.Drawing.Size(111, 30);
             this.comboBox1.TabIndex = 4;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.BackgroundImage = global::onlinewideo.pl_add.Properties.Resources._31sSQfFEQyL;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.button1.FlatAppearance.BorderSize = 3;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.ForeColor = System.Drawing.Color.DarkRed;
-            this.button1.Location = new System.Drawing.Point(95, 299);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 36);
-            this.button1.TabIndex = 30;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // label10
             // 
@@ -318,20 +301,6 @@ namespace onlinewideo.pl_add
             this.textBoxOpis.Visible = false;
             this.textBoxOpis.Click += new System.EventHandler(this.textBoxOpis_Click);
             // 
-            // labelTrailerFilm
-            // 
-            this.labelTrailerFilm.AutoSize = true;
-            this.labelTrailerFilm.Font = new System.Drawing.Font("Oswald", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelTrailerFilm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(84)))), ((int)(((byte)(85)))));
-            this.labelTrailerFilm.Image = global::onlinewideo.pl_add.Properties.Resources.YouTube_full_color_icon__2017__svg;
-            this.labelTrailerFilm.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.labelTrailerFilm.Location = new System.Drawing.Point(64, 263);
-            this.labelTrailerFilm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelTrailerFilm.Name = "labelTrailerFilm";
-            this.labelTrailerFilm.Size = new System.Drawing.Size(99, 32);
-            this.labelTrailerFilm.TabIndex = 17;
-            this.labelTrailerFilm.Text = "Trailer         :";
-            // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Oswald", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -438,6 +407,7 @@ namespace onlinewideo.pl_add
             // tabSerial
             // 
             this.tabSerial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(233)))), ((int)(((byte)(201)))));
+            this.tabSerial.Controls.Add(this.checkBox2Polski);
             this.tabSerial.Controls.Add(this.label11);
             this.tabSerial.Controls.Add(this.label12);
             this.tabSerial.Controls.Add(this.textBoxNazwaSerial2);
@@ -464,6 +434,18 @@ namespace onlinewideo.pl_add
             this.tabSerial.Size = new System.Drawing.Size(361, 363);
             this.tabSerial.TabIndex = 1;
             this.tabSerial.Text = "Serial";
+            // 
+            // checkBox2Polski
+            // 
+            this.checkBox2Polski.AutoSize = true;
+            this.checkBox2Polski.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.checkBox2Polski.Location = new System.Drawing.Point(54, 95);
+            this.checkBox2Polski.Name = "checkBox2Polski";
+            this.checkBox2Polski.Size = new System.Drawing.Size(67, 31);
+            this.checkBox2Polski.TabIndex = 41;
+            this.checkBox2Polski.Text = "Polski";
+            this.checkBox2Polski.UseVisualStyleBackColor = true;
+            this.checkBox2Polski.CheckedChanged += new System.EventHandler(this.checkBox2Polski_CheckedChanged);
             // 
             // label11
             // 
@@ -679,41 +661,6 @@ namespace onlinewideo.pl_add
             this.textBoxNazwaSerial.TabIndex = 13;
             this.textBoxNazwaSerial.TextChanged += new System.EventHandler(this.textBoxNazwaSerial_TextChanged);
             // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.Black;
-            this.button3.BackgroundImage = global::onlinewideo.pl_add.Properties.Resources._31sSQfFEQyL;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.button3.FlatAppearance.BorderSize = 3;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.ForeColor = System.Drawing.Color.DarkRed;
-            this.button3.Location = new System.Drawing.Point(96, 229);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(36, 36);
-            this.button3.TabIndex = 35;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Oswald", 14.25F);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(89)))));
-            this.label6.Image = global::onlinewideo.pl_add.Properties.Resources.YouTube_full_color_icon__2017__svg;
-            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label6.Location = new System.Drawing.Point(63, 194);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(95, 32);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "Trailer         ";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(46)))), ((int)(((byte)(99)))));
@@ -793,6 +740,87 @@ namespace onlinewideo.pl_add
             this.button4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // checkBoxPolski
+            // 
+            this.checkBoxPolski.AutoSize = true;
+            this.checkBoxPolski.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.checkBoxPolski.Location = new System.Drawing.Point(70, 83);
+            this.checkBoxPolski.Name = "checkBoxPolski";
+            this.checkBoxPolski.Size = new System.Drawing.Size(67, 31);
+            this.checkBoxPolski.TabIndex = 34;
+            this.checkBoxPolski.Text = "Polski";
+            this.checkBoxPolski.UseVisualStyleBackColor = true;
+            this.checkBoxPolski.CheckedChanged += new System.EventHandler(this.checkBoxPolski_CheckedChanged);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.BackgroundImage = global::onlinewideo.pl_add.Properties.Resources._31sSQfFEQyL;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.button1.FlatAppearance.BorderSize = 3;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.ForeColor = System.Drawing.Color.DarkRed;
+            this.button1.Location = new System.Drawing.Point(95, 299);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 36);
+            this.button1.TabIndex = 30;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // labelTrailerFilm
+            // 
+            this.labelTrailerFilm.AutoSize = true;
+            this.labelTrailerFilm.Font = new System.Drawing.Font("Oswald", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelTrailerFilm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(84)))), ((int)(((byte)(85)))));
+            this.labelTrailerFilm.Image = global::onlinewideo.pl_add.Properties.Resources.YouTube_full_color_icon__2017__svg;
+            this.labelTrailerFilm.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelTrailerFilm.Location = new System.Drawing.Point(64, 263);
+            this.labelTrailerFilm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelTrailerFilm.Name = "labelTrailerFilm";
+            this.labelTrailerFilm.Size = new System.Drawing.Size(99, 32);
+            this.labelTrailerFilm.TabIndex = 17;
+            this.labelTrailerFilm.Text = "Trailer         :";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.BackgroundImage = global::onlinewideo.pl_add.Properties.Resources._31sSQfFEQyL;
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.button3.FlatAppearance.BorderSize = 3;
+            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.ForeColor = System.Drawing.Color.DarkRed;
+            this.button3.Location = new System.Drawing.Point(96, 229);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(36, 36);
+            this.button3.TabIndex = 35;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Oswald", 14.25F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(89)))));
+            this.label6.Image = global::onlinewideo.pl_add.Properties.Resources.YouTube_full_color_icon__2017__svg;
+            this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label6.Location = new System.Drawing.Point(63, 194);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(95, 32);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Trailer         ";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Form1
             // 
@@ -880,6 +908,8 @@ namespace onlinewideo.pl_add
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBoxNazwaSerial2;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.CheckBox checkBoxPolski;
+        private System.Windows.Forms.CheckBox checkBox2Polski;
     }
 }
 

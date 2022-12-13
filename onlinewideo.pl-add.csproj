@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon-filmy.ico" />
+    <None Include="Resources\1920px-Flag_of_Poland.png" />
     <None Include="Resources\reset %282%29.png" />
     <None Include="Resources\reset %281%29.png" />
     <None Include="Resources\reset.png" />

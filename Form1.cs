@@ -28,7 +28,14 @@ namespace onlinewideo.pl_add
                <a href = ""{1}"" target=""_blank"" rel=""noopener"" ><img class=""aligncenter wp-image-24 size-medium"" title =""Serial {2}"" src=""https://onlinewideo.pl/wp-content/uploads/2018/02/oglądaj-online-300x86.png"" alt=""Serial {3} online"" width=""300"" height=""86"" /></a>
             ", textBoxNazwaSerial.Text.Trim(), labelWWWSerial.Text, textBoxNazwaSerial.Text.Trim(), textBoxNazwaSerial.Text.Trim());
 
-            textBoxOpisSerial.Text = textBoxNazwaSerial.Text.Trim() + " - " + OpisSerialu.Text + tekst;
+            if (!checkBox2Polski.Checked)
+            {
+                textBoxOpisSerial.Text = textBoxNazwaSerial.Text.Trim() + " - " + OpisSerialu.Text + tekst;
+            }
+            else if (checkBox2Polski.Checked)
+            {
+                textBoxOpisSerial.Text = textBoxNazwaSerial.Text.Trim() + " - " + OpisSerialu.Text;
+            }
         }
         public void wprowadz_tekst_do_opisu_film()
         {
@@ -38,7 +45,14 @@ namespace onlinewideo.pl_add
                <a href = ""{1}"" target=""_blank"" rel=""noopener"" ><img class=""aligncenter wp-image-24 size-medium"" title =""Film {2}"" src=""https://onlinewideo.pl/wp-content/uploads/2018/02/oglądaj-online-300x86.png"" alt=""Film {3} online"" width=""300"" height=""86"" /></a>
             ", textBoxNazwaFilm.Text.Trim(), labelWWWFilm.Text, textBoxNazwaFilm.Text.Trim(), textBoxNazwaFilm.Text.Trim());
 
-            textBoxOpis.Text = textBoxNazwaFilm.Text.Trim() + " - " + OpisFilmu.Text + tekst;
+            if (!checkBoxPolski.Checked)
+            {
+                textBoxOpis.Text = textBoxNazwaFilm.Text.Trim() + " - " + OpisFilmu.Text + tekst;
+            }
+            else if (checkBoxPolski.Checked)
+            {
+                textBoxOpis.Text = textBoxNazwaFilm.Text.Trim() + " - " + OpisFilmu.Text;
+            }
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -765,6 +779,39 @@ namespace onlinewideo.pl_add
         private void button4_Click(object sender, EventArgs e)
         {
             reset();
+        }
+
+        private void checkBoxPolski_CheckedChanged(object sender, EventArgs e)
+        {
+            wprowadz_tekst_do_opisu_film();
+           
+            if (checkBoxPolski.Checked)
+            {
+                comboBox1.Enabled = false;
+                textBoxAdresFilm.Enabled = false;
+                label_kod_player.Enabled = false;
+
+            }
+            else if (!checkBoxPolski.Checked)
+            {
+                comboBox1.Enabled = true;
+                textBoxAdresFilm.Enabled = true;
+                label_kod_player.Enabled = true;
+            }
+        }
+
+        private void checkBox2Polski_CheckedChanged(object sender, EventArgs e)
+        {
+            wprowadz_tekst_do_opisu_serial();
+            //MessageBox.Show("");
+            if (checkBox2Polski.Checked)
+            {
+                comboBox2.Enabled = false;
+            }
+            else if (!checkBox2Polski.Checked)
+            {
+                comboBox2.Enabled = true;
+            }
         }
         //
     }

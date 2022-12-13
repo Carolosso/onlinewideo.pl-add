@@ -63,6 +63,16 @@ namespace onlinewideo.pl_add.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1920px_Flag_of_Poland {
+            get {
+                object obj = ResourceManager.GetObject("1920px-Flag_of_Poland", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _31sSQfFEQyL {
             get {
                 object obj = ResourceManager.GetObject("31sSQfFEQyL", resourceCulture);
