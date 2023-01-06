@@ -200,7 +200,7 @@ namespace onlinewideo.pl_add
             "Canal + Premium",
             "Netflix",
             "Viaplay"});
-            this.comboBox1.Location = new System.Drawing.Point(-7, 132);
+            this.comboBox1.Location = new System.Drawing.Point(3, 132);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(111, 30);
@@ -628,10 +628,10 @@ namespace onlinewideo.pl_add
             this.textBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textBox2.Font = new System.Drawing.Font("Oswald", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(89)))));
-            this.textBox2.Location = new System.Drawing.Point(15, 235);
+            this.textBox2.Location = new System.Drawing.Point(10, 235);
             this.textBox2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(71, 27);
+            this.textBox2.Size = new System.Drawing.Size(76, 27);
             this.textBox2.TabIndex = 22;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
             // 
@@ -674,7 +674,7 @@ namespace onlinewideo.pl_add
             "Canal + Premium",
             "Netflix",
             "Viaplay"});
-            this.comboBox2.Location = new System.Drawing.Point(10, 150);
+            this.comboBox2.Location = new System.Drawing.Point(5, 150);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(111, 30);
