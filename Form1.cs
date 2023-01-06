@@ -673,7 +673,7 @@ namespace onlinewideo.pl_add
             this.Location = new Point(workingArea.Right - Size.Width,
                                       workingArea.Bottom - Size.Height);
 
-            this.Opacity = 0.75;
+            this.Opacity = 0.8;
  
         }
 
@@ -690,10 +690,10 @@ namespace onlinewideo.pl_add
         //
         private void Form1_Resize(object sender, EventArgs e)
         {
-
+            
             if (FormWindowState.Minimized == WindowState)
             {
-                this.Opacity = 50;
+ 
                 notifyIcon1.Visible = true;
                 this.Hide();
             }
@@ -702,6 +702,7 @@ namespace onlinewideo.pl_add
         {
             this.Show();
             this.WindowState = FormWindowState.Normal;
+            this.Opacity = 0.8;
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
